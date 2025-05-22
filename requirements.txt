@@ -1,4 +1,5 @@
 streamlit
+gTTS
 joblib
 scikit-learn
-gtts
+pandas
