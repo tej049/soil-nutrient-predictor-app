@@ -65,6 +65,21 @@ if st.button("Predict (ಅಂದಾಜು ಮಾಡಿ)"):
             st.success(f"Sufficient {labels[i]} ({kannada_labels[i]})")
             response_text += f"{kannada_labels[i]} ಸರಿಯಾಗಿಯೇ ಇದೆ. "
 
-    # Voice output
-    if st.button("Play Kannada Voice Output (ಧ್ವನಿ ಓದುವಿಕೆ)"):
-        play_kannada_audio(response_text)
+# Example prediction result (replace this with your actual output)
+english_output = "Your soil is Nitrogen deficient. Recommended: Urea fertilizer."
+kannada_output = "ನಿಮ್ಮ ಮಣ್ಣುದಲ್ಲಿ ನೈಟ್ರೋಜನ್ ಕೊರತೆಯಿದೆ. ಶಿಫಾರಸು: ಯೂರಿಯಾ ಗೊಬ್ಬರ."
+
+# Display both outputs
+st.subheader("🪴 Result (ಫಲಿತಾಂಶ):")
+st.markdown(f"**English**: {english_output}")
+st.markdown(f"**Kannada (ಕನ್ನಡ)**: {kannada_output}")
+
+# Voice Output in Kannada
+if st.button("🔊 ಹೆಣೆ ಗವಿಷಣೆಯ ಧ್ವನಿ (Voice Output in Kannada)"):
+    try:
+        tts = gTTS(text=kannada_output, lang='kn')
+        tts.save("output.mp3")
+        with open("output.mp3", "rb") as audio_file:
+            st.audio(audio_file.read(), format="audio/mp3")
+    except Exception as e:
+        st.error("Voice generation failed. Error: {}".format(e))
