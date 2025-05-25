@@ -75,7 +75,7 @@ st.markdown(f"**English**: {english_output}")
 st.markdown(f"**Kannada (ಕನ್ನಡ)**: {kannada_output}")
 
 # Voice Output in Kannada
-if st.button("🔊 ಹೆಣೆ ಗವಿಷಣೆಯ ಧ್ವನಿ (Voice Output in Kannada)"):
+if st.button("🔊 ಕನ್ನಡದಲ್ಲಿ ಸಲಹೆ ಕೇಳಿ (Voice Output in Kannada)"):
     try:
         tts = gTTS(text=kannada_output, lang='kn')
         tts.save("output.mp3")
